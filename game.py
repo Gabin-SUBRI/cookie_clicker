@@ -15,13 +15,15 @@ objectif = 1000000000
 
 #Shop
 def boutique(compteur, amélio, achat_ajoute1, achat_ajoute2,achat_ajoute3,achat_ajoute4):
-    print("\nBienvenue à la boutique !")
-    print(f"Tu as {compteur} cookies.")    
-    print(f"1. Amélioration de click (+1) : {(achat_ajoute1 +1) *50 *(achat_ajoute1 + 1)} cookies (Acheté {achat_ajoute1} fois)")
-    print(f"2. Amélioration de click (*2) : {(achat_ajoute2 + 1) * 200* (achat_ajoute2+1)} cookies (Acheté {achat_ajoute2} fois)")
-    print(f"3. Augmente ta chance d'avoir un cookie bonus : {(achat_ajoute3 + 1) * 1000 *(achat_ajoute3 + 1)} cookies (Acheté {achat_ajoute3} fois) ")
-    print(f"4. Augmente ta quantité de cookie bonus : {(achat_ajoute4 + 1) * 2000*(achat_ajoute4 + 1)} cookies (Acheté {achat_ajoute4} fois) ")
-    print("Appuie sur 'q' pour quitter la boutique.")
+    print("\n######################################################################################################\n#                                                                                                    #")
+    print("#                                   Bienvenue à la boutique !                                        #\n#                                                                                                    #")
+    print(f"#                                          Tu as {compteur} cookies.                                          #\n#                                                                                                    #")    
+    print(f"#             1. Amélioration de click (+1) : {(achat_ajoute1 +1) *50 *(achat_ajoute1 + 1)} cookies (Acheté {achat_ajoute1} fois)                             #")
+    print(f"#             2. Amélioration de click (*2) : {(achat_ajoute2 + 1) * 200* (achat_ajoute2+1)} cookies (Acheté {achat_ajoute2} fois)                            #")
+    print(f"#             3. Augmente ta chance d'avoir un cookie bonus : {(achat_ajoute3 + 1) * 1000 *(achat_ajoute3 + 1)} cookies (Acheté {achat_ajoute3} fois)           #")
+    print(f"#             4. Augmente ta quantité de cookie bonus : {(achat_ajoute4 + 1) * 2000*(achat_ajoute4 + 1)} cookies (Acheté {achat_ajoute4} fois)                 # \n#                                                                                                    #")
+    print("#   Appuie sur 'q' pour quitter la boutique.                                                         #")
+    print("#                                                                                                    #\n######################################################################################################\n")
 
 #Game loop for shop
     while True:
@@ -47,14 +49,14 @@ def boutique(compteur, amélio, achat_ajoute1, achat_ajoute2,achat_ajoute3,achat
             achat_ajoute4 += 1
             print(f"Amélioration de cookie bonus à x{achat_ajoute4+2}")
         elif choix == "q":
-            print("Merci pour ta visite !")
+            print("Merci pour ta visite !\n")
             break
         else:
             print("Option invalide ou pas assez de cookies.")
     return compteur, amélio, achat_ajoute1, achat_ajoute2, achat_ajoute3, achat_ajoute4
 
 #Menu
-print("Appuie sur 'Espace' pour miner des cookies. \n"
+print("\nAppuie sur 'Espace' pour miner des cookies. \n"
     "Appuie sur 'b' pour accéder à la boutique.\n"
     "Appuie sur 'q' pour quitter.")
 start_time = time.time() # demarre le chronometre
@@ -69,8 +71,6 @@ while touche != "q":
         print(f"Cookies : {compteur}")
     if touche == "b":
         compteur,amélio,achat_ajoute1,achat_ajoute2,achat_ajoute3, achat_ajoute4 = boutique(compteur,amélio,achat_ajoute1,achat_ajoute2, achat_ajoute3, achat_ajoute4)
-    if touche == "o":
-        compteur += 1000000000
     if touche == "p":        
         elapsed_time = time.time() - start_time  # Temps écoulé en secondes
         minutes = int(elapsed_time // 60)
@@ -89,7 +89,8 @@ while touche != "q":
         print("Tu peux relancer le jeu pour essayer de battre ton score.")
         print ("quelquun l'a fait en 1min et 12s")
         break 
-
+    if touche == "q":
+        print("Le défi était trop haut pour toi ?")
 print("Fin du programme.")
 
 #                                  .:=+*##%%%%%%**+=-:.                :-+**##%%%%%%%%**++=-:.                       
