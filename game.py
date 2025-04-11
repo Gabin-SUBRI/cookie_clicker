@@ -1,9 +1,26 @@
-#Imports of this program
+# Imports of this program for Windows
 import msvcrt
 import random
 import time
 
-#Variables initialization
+# Imports of this program for Linux
+import sys
+import tty
+import termios
+
+def getch():
+    """Capture une touche pressée sans appuyer sur Entrée (Linux/Unix)."""
+    file_descriptor = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(file_descriptor)
+    try:
+        tty.setraw(file_descriptor)
+        char = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_settings)
+    return char
+
+
+# Variables initialization
 compteur = 0
 touche = ""
 amélio = 1
