@@ -1,5 +1,5 @@
 # Imports of this program for Windows
-import msvcrt
+# import msvcrt
 import random
 import time
 
