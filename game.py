@@ -9,7 +9,6 @@ import tty
 import termios
 
 def getch():
-    """Capture une touche pressée sans appuyer sur Entrée (Linux/Unix)."""
     file_descriptor = sys.stdin.fileno()
     old_settings = termios.tcgetattr(file_descriptor)
     try:
@@ -44,15 +43,13 @@ def boutique(compteur, amélio, achat_ajoute1, achat_ajoute2,achat_ajoute3,achat
 
 # Shop interaction loop
     while True:
-        choix = msvcrt.getch().decode("utf-8")
-        #choix 1
+        choix = termios.tcgetattr().decode("utf-8")
         if choix == "1" and compteur >= (achat_ajoute1 +1) *50 *(achat_ajoute1 + 1):
             # Handle click improvement purchase (+1)
             amélio += 1
             compteur -= (achat_ajoute1 +1) *50 *(achat_ajoute1 + 1)
             achat_ajoute1 += 1
             print(f"Amélioration de click achetée ! 🚀 {achat_ajoute1}")
-            #choix 2
         elif choix == "2" and compteur >= (achat_ajoute2 + 1) * 200* (achat_ajoute2+1):
             # Handle click improvement purchase (*2)
             amélio *= 2
@@ -86,7 +83,7 @@ start_time = time.time() # Start the timer
 
 # Main game loop
 while touche != "q":
-    touche = msvcrt.getch().decode("utf-8")
+    touche = termios.tcgetattr().decode("utf-8")
     if touche == " ":
         if random.randint(1,100) <= achat_ajoute3 :
             compteur += amélio * (achat_ajoute4 + 1)
